@@ -1,12 +1,5 @@
-﻿using System.Buffers;
-using System.Diagnostics.Metrics;
-using System.Runtime.InteropServices;
-using leetcode75.Leetcode.ArrayString;
-using leetcode75.Leetcode.Monotonic_Stack;
-using System;
-using System.Text;
-using leetcode75.Leetcode.Counting_Bits;
-using System.Text.Json;
+﻿using System.Diagnostics;
+using leetcode75.Leetcode.TwoPointers;
 
 namespace leetcode75;
 
@@ -14,12 +7,32 @@ class Program
 {
     static void Main(string[] args)
     {
-        var cb = new Count_Bits();
-        var a = cb.CountBits(2);
-        var b = cb.CountBits(5);
-        var c = cb.CountBits(10);
-        var d = cb.CountBits(50);
-        System.Console.WriteLine(JsonSerializer.Serialize(d));
+        var m1 = GC.GetTotalMemory(true);
+        Stopwatch st = Stopwatch.StartNew();
+
+        for (int i = 0; i < int.MaxValue; i++)
+        {
+            int a = i / 2;
+        }
+
+        var m2 = GC.GetTotalMemory(true);
+        var t2 = st.ElapsedMilliseconds;
+
+        int b;
+
+        for (int i = 0; i < int.MaxValue; i++)
+        {
+            b = i / 2;
+        }
+
+
+        var m3 = GC.GetTotalMemory(true);
+        var t3 = st.ElapsedMilliseconds;
+
+        System.Console.WriteLine(m2 - m1);
+        System.Console.WriteLine(t2);
+        System.Console.WriteLine(m3 - m2);
+        System.Console.WriteLine(t3 - t2);
     }
 
 }
